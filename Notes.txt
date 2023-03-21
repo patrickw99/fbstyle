@@ -1,0 +1,32 @@
+To do:
+1)
+Multiline #define will not indent corectly (tabs->spaces)
+
+#define hGetVREG(vreg,dt,dc,t) 						_
+if( vreg <> NULL ) then 						: _
+		t = vreg->typ 								: _
+		: _
+		dt = vreg->dtype							: _
+		if( dt >= IR_DATATYPE_POINTER ) then		: _
+			dt = IR_DATATYPE_UINT					: _
+			dc = IR_DATACLASS_INTEGER				: _
+			else										: _
+			dc = dtypeTB(dt).class					: _
+		end if										: _
+		: _
+		else											: _
+		t  = INVALID								: _
+		dt = INVALID								: _
+		dc = INVALID								: _
+	end if
+
+2)
+#if #else # endif
+
+#if _H_
+	if x=y then
+	#else
+		if x<y then
+			#end if
+
+
